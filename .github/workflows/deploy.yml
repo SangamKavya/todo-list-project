@@ -1,23 +1,28 @@
-name: GitHub Pages CI/CD
+name: Deploy To-Do List to GitHub Pages
 
 on:
   push:
     branches:
-      - main  # Trigger on push to main branch
+      - main
 
 jobs:
-  build-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout repository
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      # Step 1: Checkout the repository
+      - uses: actions/checkout@v3
 
-      # Step 2: Deploy to GitHub Pages using PAT
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      # Step 2: Set up Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          personal_token: ${{ secrets.PAT_TOKEN }}  # Uses the secret you created
-          publish_dir: ./   # Root directory contains index.html
-          commit_message: "Auto deploy To-Do List via GitHub Actions"
+          node-version: '18'
+
+      # Step 3: Install gh-pages package
+      - name: Install gh-pages
+        run: npm install -g gh-pages
+
+      # Step 4: Deploy to GitHub Pages
+      - name: Deploy
+        run: gh-pages -d ./ -b gh-pages -r https://github.com/${{ github.repository }}.git
