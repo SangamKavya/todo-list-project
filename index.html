@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional To-Do List</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1><i class="fa-solid fa-list-check"></i> My To-Do List</h1>
+      <div id="taskCounter" class="task-counter">Total Tasks: 0 | Completed: 0</div>
+    </header>
+    <nav class="filter-nav">
+      <button class="filter-btn active" onclick="filterTasks('all')">All</button>
+      <button class="filter-btn" onclick="filterTasks('pending')">Pending</button>
+      <button class="filter-btn" onclick="filterTasks('completed')">Completed</button>
+    </nav>
+    <main>
+      <button id="addTaskBtn" class="add-btn"><i class="fa-solid fa-plus"></i> Add Task</button>
+      <ul id="taskList"></ul>
+      <button id="clearBtn" class="clear-btn"><i class="fa-solid fa-broom"></i> Clear All</button>
+    </main>
+  </div>
+
+  <!-- Modal for adding/editing tasks -->
+  <div id="taskModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="modalTitle">Add New Task</h2>
+      <input type="text" id="modalTaskInput" placeholder="Enter task..." autofocus>
+      <button id="saveTaskBtn" onclick="saveTask()">Save</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

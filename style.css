@@ -1,0 +1,307 @@
+/* General Styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #e9ecf3, #f5f7fa);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.container {
+  margin-top: 50px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 8px 20px rgba(44, 62, 80, 0.10);
+  width: 400px;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #22314f;
+}
+
+.task-counter {
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #4a5a6a;
+}
+
+.input-area {
+  display: flex;
+  gap: 10px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s;
+}
+
+input[type="text"]:focus {
+  border-color: #007bff;
+}
+
+button {
+  padding: 12px 18px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}
+
+ul {
+  list-style: none;
+  margin-top: 20px;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f3f6fa;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  transition: background 0.3s, transform 0.3s, opacity 0.3s;
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+li.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+li:hover {
+  background: #e6eaf0;
+}
+
+/* Custom Checkbox */
+.task-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #22314f;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s;
+  background: #fff;
+}
+
+input[type="checkbox"]:checked {
+  background: #22314f;
+}
+
+input[type="checkbox"]::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  top: 2px;
+  left: 7px;
+  transform: rotate(45deg) scale(0);
+  transition: transform 0.2s ease-in-out;
+}
+
+input[type="checkbox"]:checked::after {
+  transform: rotate(45deg) scale(1);
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #7a869a;
+}
+
+.actions button {
+  margin-left: 5px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* Button Colors */
+.edit-btn {
+  background: #f7c948;
+  color: #22314f;
+}
+
+.edit-btn:hover {
+  background: #e1b12c;
+}
+
+.delete-btn {
+  background: #e74c3c;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background: #c0392b;
+}
+
+.clear-btn {
+  width: 100%;
+  margin-top: 15px;
+  padding: 12px;
+  background: #4a5a6a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  font-size: 16px;
+}
+
+.clear-btn:hover {
+  background: #22314f;
+  transform: scale(1.02);
+}
+
+/* Filter Navigation */
+.filter-nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-btn {
+  background: #e6eaf0;
+  color: #22314f;
+  border: 2px solid #22314f;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background: #22314f;
+  color: #fff;
+}
+
+/* Add Button */
+.add-btn {
+  width: 100%;
+  margin-bottom: 15px;
+  font-size: 16px;
+  background: #2d8cf0;
+  border: none;
+  color: #fff;
+  border-radius: 8px;
+  padding: 12px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.add-btn:hover {
+  background: #1766b0;
+  transform: scale(1.02);
+}
+
+/* Modal Styling */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background: rgba(44, 62, 80, 0.18);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  margin: auto;
+  padding: 30px 25px 20px 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(44,62,80,0.18);
+  width: 320px;
+  position: relative;
+  animation: fadeIn 0.4s;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 22px;
+  color: #7a869a;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close:hover {
+  color: #e74c3c;
+}
+
+#modalTaskInput {
+  padding: 12px;
+  border: 2px solid #2d8cf0;
+  border-radius: 8px;
+  outline: none;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+#saveTaskBtn {
+  background: #2d8cf0;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 0;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#saveTaskBtn:hover {
+  background: #1766b0;
+}
+
+/* Show modal */
+.modal.show {
+  display: flex;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
