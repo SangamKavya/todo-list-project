@@ -1,7 +1,7 @@
 /* General Styling */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #e3e6ee, #cfd8e3); /* Professional blue-gray gradient */
+  background: linear-gradient(135deg, #f7e6ee, #f3c6d3); /* Professional pink gradient */
   margin: 0;
   padding: 0;
   display: flex;
