@@ -14,10 +14,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Step 2: Deploy to GitHub Pages
+      # Step 2: Deploy to GitHub Pages using PAT
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          personal_token: ${{ secrets.PAT_TOKEN }}  # Use your PAT
+          personal_token: ${{ secrets.PAT_TOKEN }}  # Uses the secret you created
           publish_dir: ./   # Root directory contains index.html
           commit_message: "Auto deploy To-Do List via GitHub Actions"
