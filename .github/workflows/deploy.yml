@@ -10,11 +10,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      # Step 2: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./  # Root directory contains index.html
+          personal_token: ${{ secrets.PAT_TOKEN }}  # Use your PAT
+          publish_dir: ./   # Root directory contains index.html
+          commit_message: "Auto deploy To-Do List via GitHub Actions"
